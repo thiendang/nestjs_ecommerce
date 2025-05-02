@@ -10,7 +10,12 @@ import { HashingService } from 'src/shared/services/hashing.service';
 import { PrismaService } from 'src/shared/services/prisma.service';
 import { TokenService } from 'src/shared/services/token.service';
 
-const sharedServices = [PrismaService, HashingService, TokenService, SharedUserRepository];
+const sharedServices = [
+  PrismaService,
+  HashingService,
+  TokenService,
+  SharedUserRepository,
+];
 
 @Global()
 @Module({

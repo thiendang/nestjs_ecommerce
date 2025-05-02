@@ -13,7 +13,8 @@ export const ConditionGuard = {
   Or: 'Or',
 } as const;
 
-export type ConditionGuardType = (typeof ConditionGuard)[keyof typeof ConditionGuard];
+export type ConditionGuardType =
+  (typeof ConditionGuard)[keyof typeof ConditionGuard];
 
 export const UserStatus = {
   ACTIVE: 'ACTIVE',
