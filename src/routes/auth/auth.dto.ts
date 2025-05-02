@@ -1,9 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
-import {
-  RegisterBodySchema,
-  RegisterResSchema,
-  SendOTPBodySchema,
-} from 'src/routes/auth/auth.model';
+
+import { RegisterBodySchema, RegisterResSchema, SendOTPBodySchema } from 'src/routes/auth/auth.model';
 
 export class RegisterBodyDTO extends createZodDto(RegisterBodySchema) {}
 

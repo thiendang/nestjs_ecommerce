@@ -1,7 +1,7 @@
-import z from 'zod';
+import { config } from 'dotenv';
 import fs from 'fs';
 import path from 'path';
-import { config } from 'dotenv';
+import z from 'zod';
 
 config({
   path: '.env',
@@ -14,6 +14,7 @@ if (!fs.existsSync(path.resolve('.env'))) {
 
 const configSchema = z.object({
   DATABASE_URL: z.string().nonempty(),
+
   ACCESS_TOKEN_SECRET: z.string().nonempty(),
   ACCESS_TOKEN_EXPIRES_IN: z.string().nonempty(),
   REFRESH_TOKEN_SECRET: z.string().nonempty(),
