@@ -12,6 +12,7 @@ import {
   isPrismaUniqueConstrantError,
 } from 'src/shared/helpers';
 import { SharedUserRepository } from 'src/shared/repositories/shared-user.repository';
+import { EmailService } from 'src/shared/services/email.service';
 import { HashingService } from 'src/shared/services/hashing.service';
 
 @Injectable()
@@ -21,6 +22,7 @@ export class AuthService {
     private readonly roleService: RoleService,
     private readonly authRepository: AuthRepository,
     private readonly sharedUserRepository: SharedUserRepository,
+    private readonly emailService: EmailService,
   ) {}
 
   async register(body: RegisterBodyType) {
@@ -101,6 +103,20 @@ export class AuthService {
         ms(envConfig.OTP_EXPIRES_IN as StringValue),
       ),
     });
+
+    const { error } = await this.emailService.sendOTP({
+      email,
+      code: otpCode,
+    });
+
+    if (error) {
+      throw new UnprocessableEntityException([
+        {
+          message: 'Failed to send OTP code',
+          path: 'code',
+        },
+      ]);
+    }
 
     return verificationCode;
   }

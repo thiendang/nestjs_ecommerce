@@ -9,12 +9,14 @@ import { SharedUserRepository } from 'src/shared/repositories/shared-user.reposi
 import { HashingService } from 'src/shared/services/hashing.service';
 import { PrismaService } from 'src/shared/services/prisma.service';
 import { TokenService } from 'src/shared/services/token.service';
+import { EmailService } from 'src/shared/services/email.service';
 
 const sharedServices = [
   PrismaService,
   HashingService,
   TokenService,
   SharedUserRepository,
+  EmailService,
 ];
 
 @Global()
