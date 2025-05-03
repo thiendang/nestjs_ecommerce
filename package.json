@@ -7,6 +7,9 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
+    "email:dev": "email dev",
+    "email:build": "email build",
+    "email:export": "email export",
     "seed": "ts-node scripts",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
